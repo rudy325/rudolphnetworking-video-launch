@@ -3,7 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 const port = Number(process.env.PORT) || 3000;
-const host = process.env.HOST || "127.0.0.1";
+const host =
+  process.env.HOST || (process.env.RAILWAY_ENVIRONMENT ? "0.0.0.0" : "127.0.0.1");
 const publicDir = path.join(__dirname, "public");
 
 const mimeTypes = {
